@@ -1,0 +1,6 @@
+package mf.ukim.finki.mis.mis_2
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
