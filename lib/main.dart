@@ -42,28 +42,39 @@ class _MyAppState extends State<MyApp> {
           children: [
             ElevatedButton(
               onPressed: () => _showAddClothesDialog(),
-              child: const Text('Add Clothes'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+              ),
+              child: const Text('Add Clothes',
+                  style: TextStyle(color: Colors.red)),
             ),
             const SizedBox(height: 20),
             const Text('All Clothes:',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.blue)),
             Expanded(
               child: ListView.builder(
                 itemCount: clothesList.length,
                 itemBuilder: (context, index) {
                   return ListTile(
                     title: Text(
-                        '${clothesList[index].type} - ${clothesList[index].color}'),
+                        '${clothesList[index].type} - ${clothesList[index].color}',
+                        style:
+                            const TextStyle(color: Colors.blue, fontSize: 18)),
                     trailing: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         IconButton(
                           icon: const Icon(Icons.edit),
                           onPressed: () => _showEditClothesDialog(index),
+                          color: Colors.green,
                         ),
                         IconButton(
                           icon: const Icon(Icons.delete),
                           onPressed: () => _deleteClothes(index),
+                          color: Colors.green,
                         ),
                       ],
                     ),
@@ -94,14 +105,18 @@ class _MyAppState extends State<MyApp> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: const Text('Cancel'),
+              child: const Text('Cancel',
+                  style: TextStyle(
+                      backgroundColor: Colors.green, color: Colors.red)),
             ),
             TextButton(
               onPressed: () {
                 _addClothes();
                 Navigator.pop(context);
               },
-              child: const Text('Confirm'),
+              child: const Text('Confirm',
+                  style: TextStyle(
+                      backgroundColor: Colors.green, color: Colors.red)),
             ),
           ],
         );
@@ -128,7 +143,8 @@ class _MyAppState extends State<MyApp> {
           child: Text(type),
         );
       }).toList(),
-      decoration: const InputDecoration(labelText: 'Select Type'),
+      decoration: const InputDecoration(
+          labelText: 'Select Type', labelStyle: TextStyle(color: Colors.blue)),
     );
   }
 
@@ -151,7 +167,8 @@ class _MyAppState extends State<MyApp> {
           child: Text(color),
         );
       }).toList(),
-      decoration: const InputDecoration(labelText: 'Select Color'),
+      decoration: const InputDecoration(
+          labelText: 'Select Color', labelStyle: TextStyle(color: Colors.blue)),
     );
   }
 
@@ -183,14 +200,18 @@ class _MyAppState extends State<MyApp> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: const Text('Cancel'),
+              child: const Text('Cancel',
+                  style: TextStyle(
+                      backgroundColor: Colors.green, color: Colors.red)),
             ),
             TextButton(
               onPressed: () {
                 _editClothes(index);
                 Navigator.pop(context);
               },
-              child: const Text('Save'),
+              child: const Text('Save',
+                  style: TextStyle(
+                      backgroundColor: Colors.green, color: Colors.red)),
             ),
           ],
         );
